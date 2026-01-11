@@ -4,6 +4,10 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Send } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import amiksPhoto from '@/assets/amiks.png';
+import satyamPhoto from '@/assets/satyam.png';
+import pranavPhoto from '@/assets/pranav.jpeg';
+import abhiyanPhoto from '@/assets/abhiyan.png';
 
 const faqs = [
   { question: 'Do you offer both design and development?', answer: 'Yes! We handle both UI/UX design and full-stack development, specializing in React, Next.js, and modern web technologies.' },
@@ -17,10 +21,10 @@ const faqs = [
 ];
 
 const teamMembers = [
-  { name: 'Amiks Karki', role: 'CFO' },
-  { name: 'Satyam Dulal', role: 'CTO' },
-  { name: 'Pranav Kattel', role: 'Co-founder' },
-  { name: 'Abhiyan Dahal', role: 'Co-founder' },
+  { name: 'Amiks Karki', role: 'CFO', photo: amiksPhoto },
+  { name: 'Satyam Dulal', role: 'CTO', photo: satyamPhoto },
+  { name: 'Pranav Kattel', role: 'Co-founder', photo: pranavPhoto },
+  { name: 'Abhiyan Dahal', role: 'Co-founder', photo: abhiyanPhoto },
   { name: 'Aditiya Aryal', role: 'System Administrator' },
 ];
 
@@ -137,9 +141,17 @@ export default function About() {
                   className="group text-center"
                 >
                   <div className="w-full aspect-square mb-6 bg-neutral-900 border border-white/5 flex items-center justify-center group-hover:border-red-600 transition-all duration-500 relative overflow-hidden">
-                    <span className="text-5xl font-black text-neutral-800 tracking-tighter group-hover:text-red-600 transition-colors z-10 relative">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                    {member.photo ? (
+                      <img 
+                        src={member.photo} 
+                        alt={member.name}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      />
+                    ) : (
+                      <span className="text-5xl font-black text-neutral-800 tracking-tighter group-hover:text-red-600 transition-colors z-10 relative">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    )}
                     <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
                   <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">{member.name}</h4>

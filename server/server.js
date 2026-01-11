@@ -3,10 +3,13 @@ import nodemailer from 'nodemailer';
 import cors from 'cors';
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  credentials: true
+}));
 app.use(express.json());
 
 // Zoho admin transporter for sending notifications to contact@laevix.org
@@ -15,8 +18,8 @@ const adminTransporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'admin@laevix.org',
-    pass: 'B0kwmeY5r2Av'
+    user: process.env.ADMIN_EMAIL || 'admin@laevix.org',
+    pass: process.env.ADMIN_PASSWORD || 'B0kwmeY5r2Av'
   }
 });
 
@@ -26,8 +29,8 @@ const zohoTransporter = nodemailer.createTransport({
   port: 465,
   secure: true,
   auth: {
-    user: 'contact@laevix.org',
-    pass: process.env.ZOHO_PASS || 'UQwNTyvLiwus'
+    user: process.env.CONTACT_EMAIL || 'contact@laevix.org',
+    pass: process.env.CONTACT_PASSWORD || 'UQwNTyvLiwus'
   }
 });
 

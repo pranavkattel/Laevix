@@ -1,11 +1,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import amiksPhoto from '@/assets/amiks.png';
+import satyamPhoto from '@/assets/satyam.png';
+import pranavPhoto from '@/assets/pranav.jpeg';
+import abhiyanPhoto from '@/assets/abhiyan.png';
 
 const teamMembers = [
-  { name: 'Amiks Karki', role: 'Co-founder' },
-  { name: 'Satyam Dulal', role: 'Co-founder' },
-  { name: 'Pranav Kattel', role: 'Co-founder' },
-  { name: 'Abhiyan Dahal', role: 'Co-founder' },
+  { name: 'Amiks Karki', role: 'Co-founder', photo: amiksPhoto },
+  { name: 'Satyam Dulal', role: 'Co-founder', photo: satyamPhoto },
+  { name: 'Pranav Kattel', role: 'Co-founder', photo: pranavPhoto },
+  { name: 'Abhiyan Dahal', role: 'Co-founder', photo: abhiyanPhoto },
 ];
 
 export function TeamSection() {
@@ -59,9 +63,11 @@ export function TeamSection() {
             >
               {/* Avatar placeholder */}
               <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-none bg-neutral-900 flex items-center justify-center overflow-hidden border border-white/5 group-hover:border-red-600 transition-all duration-500 relative">
-                <span className="text-3xl md:text-4xl font-black text-neutral-800 tracking-tighter group-hover:text-red-600 transition-colors">
-                  {member.name.split(' ').map(n => n[0]).join('')}
-                </span>
+                <img 
+                  src={member.photo} 
+                  alt={member.name}
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                />
                 <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <h3 className="font-bold text-lg uppercase tracking-widest text-white mb-2">{member.name}</h3>
