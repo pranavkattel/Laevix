@@ -9,12 +9,25 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Email configuration
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
+// Zoho admin transporter for sending notifications to contact@laevix.org
+const adminTransporter = nodemailer.createTransport({
+  host: 'smtp.zoho.com',
+  port: 465,
+  secure: true,
   auth: {
-    user: 'pranavkattel333@gmail.com',
-    pass: 'nfrgpqxkiqlldsro'
+    user: 'admin@laevix.org',
+    pass: 'B0kwmeY5r2Av'
+  }
+});
+
+// Zoho transporter for sending auto-replies from contact@laevix.org
+const zohoTransporter = nodemailer.createTransport({
+  host: 'smtp.zoho.com',
+  port: 465,
+  secure: true,
+  auth: {
+    user: 'contact@laevix.org',
+    pass: process.env.ZOHO_PASS || 'UQwNTyvLiwus'
   }
 });
 
@@ -123,7 +136,7 @@ const getAutoReplyHTML = (name) => `
         In the meantime, feel free to check out our portfolio and learn more about what we do.
       </div>
       
-      <a href="https://laevix.com" class="cta-button">Visit Our Website</a>
+      <a href="https://laevix.org" class="cta-button">Visit Our Website</a>
       
       <div class="message">
         Looking forward to working together!
@@ -281,18 +294,18 @@ app.post('/api/send-email', async (req, res) => {
   }
 
   try {
-    // Send notification email to yourself
-    await transporter.sendMail({
-      from: '"Laevix Contact Form" <pranavkattel333@gmail.com>',
-      to: 'pranavkattel333@gmail.com',
+    // Send notification email to contact@laevix.org using admin@laevix.org
+    await adminTransporter.sendMail({
+      from: '"Laevix Contact Form" <admin@laevix.org>',
+      to: 'contact@laevix.org',
       subject: `New Contact: ${subject}`,
       html: getNotificationHTML(name, email, subject, message),
       replyTo: email
     });
 
-    // Send auto-reply to the sender
-    await transporter.sendMail({
-      from: '"Laevix" <pranavkattel333@gmail.com>',
+    // Send auto-reply to the sender using Zoho
+    await zohoTransporter.sendMail({
+      from: '"Laevix" <contact@laevix.org>',
       to: email,
       subject: 'Thanks for reaching out to Laevix!',
       html: getAutoReplyHTML(name)
