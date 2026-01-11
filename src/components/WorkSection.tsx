@@ -17,6 +17,7 @@ const projects = [
     description: 'Modern logistics and freight solutions for businesses across Nepal.',
     url: 'https://cargocapital.com/',
     category: 'Business',
+    tags: ['Design', 'Development'],
   },
 ];
 

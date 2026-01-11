@@ -22,18 +22,8 @@ const projects = [
     category: 'Business',
     description: 'Modern logistics and freight solutions for businesses across Nepal with real-time tracking.',
     url: 'https://cargocapital.com/',
-    tags: ['Design'],
-    year: '2024',
-    image: null
-  },
-  {
-    id: '03',
-    name: 'Kathmandu Coffee Co.',
-    category: 'E-commerce',
-    description: 'Premium coffee roastery bringing the finest Himalayan coffee beans to your doorstep.',
-    url: '#',
     tags: ['Design', 'Development'],
-    year: '2025',
+    year: '2024',
     image: null
   }
 ];
