@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Mail, ArrowUpRight, Send, Phone, Check, AlertCircle, MapPin } from 'lucide-react';
+import { Mail, ArrowUpRight, Send, MessageSquare, Phone, Check, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const ref = useRef(null);
@@ -67,8 +67,8 @@ export default function Contact() {
 
   const contactMethods = [
     { icon: Mail, label: 'Email', value: 'contact@laevix.org', link: 'mailto:contact@laevix.org' },
-    { icon: Phone, label: 'Phone', value: '+977 9768434350, +977 9820229166', link: 'tel:+9779768434350', note: 'WhatsApp available' },
-    { icon: MapPin, label: 'Location', value: 'Madhyapur Thimi, Bhaktapur', link: '#' },
+    { icon: Phone, label: 'Phone', value: '+977 9768434350', value2: '+977 9820229166', subtext: '(WhatsApp Available)', link: 'tel:+9779768434350' },
+    { icon: MessageSquare, label: 'Location', value: 'Gokarneshwor Jorpati', subtext: 'Kathmandu, Nepal', link: '#' },
   ];
 
   return (
@@ -291,11 +291,18 @@ export default function Contact() {
                   </h3>
                   <p className="text-sm text-neutral-400 group-hover:text-white transition-colors duration-300">
                     {method.value}
-                  </p>                  {method.note && (
-                    <p className=\"text-xs text-red-500 font-semibold mt-3 uppercase tracking-widest\">
-                      ✓ {method.note}
+                  </p>
+                  {method.value2 && (
+                    <p className="text-sm text-neutral-400 group-hover:text-white transition-colors duration-300">
+                      {method.value2}
                     </p>
-                  )}                </a>
+                  )}
+                  {method.subtext && (
+                    <p className="text-xs text-red-600 font-semibold mt-2">
+                      {method.subtext}
+                    </p>
+                  )}
+                </a>
               );
             })}
           </motion.div>
