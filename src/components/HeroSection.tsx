@@ -8,6 +8,25 @@ export function HeroSection() {
   const [isLocked, setIsLocked] = useState(true);
   const [videoPlaying, setVideoPlaying] = useState(false);
   const lockedScrollPos = useRef(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Disable scroll lock on mobile
+  useEffect(() => {
+    if (isMobile) {
+      setIsLocked(false);
+      setInternalScroll(100);
+    }
+  }, [isMobile]);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -59,7 +78,7 @@ export function HeroSection() {
     let accumulatedScroll = 0;
 
     const handleWheel = (e: WheelEvent) => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || isMobile) return;
 
       const rect = containerRef.current.getBoundingClientRect();
       const isInView = rect.top <= 0 && rect.bottom > 0;
@@ -84,6 +103,9 @@ export function HeroSection() {
     };
 
     const handleTouchMove = (e: TouchEvent) => {
+      // Don't prevent touch scroll on mobile
+      if (isMobile) return;
+      
       if (isLocked && containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         const isInView = rect.top <= 0 && rect.bottom > 0;
@@ -93,7 +115,7 @@ export function HeroSection() {
       }
     };
 
-    if (isLocked) {
+    if (isLocked && !isMobile) {
       // Lock scroll position
       lockedScrollPos.current = window.scrollY;
       document.body.style.overflow = 'hidden';
@@ -129,7 +151,7 @@ export function HeroSection() {
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center pt-20 px-6">
 
         {/* Play Showreel Button */}
-        <div className="absolute left-8 md:left-24 top-1/2 -translate-y-1/2 z-20">
+        <div className="hidden md:block absolute left-8 md:left-24 top-1/2 -translate-y-1/2 z-20">
           <motion.button
             whileHover={{ scale: 1.1 }}
             className="flex items-center gap-4 group"
@@ -142,21 +164,21 @@ export function HeroSection() {
         </div>
 
         {/* Main Typography */}
-        <div className="relative z-10 flex flex-col items-center text-center -translate-y-[25%] md:-translate-y-[35%]">
+        <div className="relative z-10 flex flex-col items-center text-center -translate-y-[205%] md:-translate-y-[35%]">
           <motion.h1
-            animate={{ opacity: textOpacity }}
-            className="text-[10vw] font-black uppercase tracking-tighter leading-[0.8] text-neutral-900 dark:text-white"
+            animate={{ opacity: isMobile ? 1 : textOpacity }}
+            className="text-[8vw] sm:text-[8vw] md:text-[10vw] font-black uppercase tracking-tighter leading-tight text-neutral-900 dark:text-white mb-2"
           >
             SOLUTIONS THAT
           </motion.h1>
           <motion.h1
             style={{
-              translateX: moveX,
-              translateY: moveY,
-              WebkitTextStroke: '2px rgba(239, 68, 68, 0.5)'
+              translateX: isMobile ? 0 : moveX,
+              translateY: isMobile ? 0 : moveY,
+              WebkitTextStroke: '1px rgba(239, 68, 68, 0.5)'
             }}
-            animate={{ y: moveTextScrollY }}
-            className="text-[18vw] font-black uppercase tracking-tighter leading-[0.8] text-neutral-800/40 dark:text-neutral-800/50 relative"
+            animate={{ y: isMobile ? 0 : moveTextScrollY }}
+            className="text-[15vw] sm:text-[16vw] md:text-[18vw] font-black uppercase tracking-tighter leading-none text-red-600 relative"
           >
             SCALE
           </motion.h1>
@@ -169,9 +191,9 @@ export function HeroSection() {
             scale: monitorScale
           }}
           transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
-          className="absolute bottom-0 w-full max-w-5xl aspect-video px-4 z-30"
+          className="absolute bottom-0 w-full max-w-2xl md:max-w-5xl aspect-video px-2 md:px-4 z-30"
         >
-          <div className="relative w-full h-full bg-neutral-300 dark:bg-[#1a1a1a] rounded-t-2xl p-6 shadow-[0_-50px_100px_rgba(0,0,0,0.8)] dark:shadow-[0_-50px_100px_rgba(0,0,0,0.8)] shadow-[0_-50px_100px_rgba(0,0,0,0.2)] border-x border-t border-neutral-400 dark:border-white/10">
+          <div className="relative w-full h-full bg-neutral-300 dark:bg-[#1a1a1a] rounded-t-lg md:rounded-t-2xl p-2 md:p-6 shadow-[0_-20px_50px_rgba(0,0,0,0.4)] md:shadow-[0_-50px_100px_rgba(0,0,0,0.8)] border-x border-t border-neutral-400 dark:border-white/10">
             {/* Screen */}
             <div className="relative w-full h-full bg-neutral-400 dark:bg-black rounded-lg overflow-hidden border border-neutral-500 dark:border-white/5">
               <video
@@ -185,7 +207,7 @@ export function HeroSection() {
               </video>
 
               {/* 3D Floating Elements */}
-              <div className="absolute inset-0 pointer-events-none overflow-hidden">
+              <div className="hidden md:block absolute inset-0 pointer-events-none overflow-hidden">
                 {/* Animated Cubes */}
                 <motion.div
                   animate={{

@@ -37,14 +37,14 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-neutral-200 dark:bg-black pt-40 pb-20 border-t border-neutral-300 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
+    <section id="about" className="relative bg-neutral-200 dark:bg-black pt-24 md:pt-40 pb-12 md:pb-20 border-t border-neutral-300 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
       {/* Background Text */}
-      <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none overflow-hidden">
+      <div className="flex absolute top-0 left-0 w-full justify-center pointer-events-none select-none overflow-hidden">
         <motion.h2 
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-25%] text-neutral-800/80 dark:text-neutral-700/70" 
+          className="text-[15vw] md:text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-25%] text-neutral-800/80 dark:text-neutral-700/70" 
           style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}
         >
           ABOUT
@@ -52,7 +52,7 @@ export function AboutSection() {
       </div>
 
       {/* Cross Grid Lines & Markers */}
-      <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none z-0">
+      <div className="hidden md:flex absolute top-0 left-0 w-full justify-between px-[10%] pointer-events-none z-0">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="relative flex flex-col items-center">
             <span className="text-neutral-400 dark:text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
@@ -61,21 +61,21 @@ export function AboutSection() {
         ))}
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative z-10 px-4 md:px-6">
         {/* About Content */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-col items-center text-center mb-32"
+          className="flex flex-col items-center text-center mb-16 md:mb-32"
         >
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-16 leading-[0.9] text-neutral-900 dark:text-white"
+            className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase mb-12 md:mb-16 leading-[0.9] text-neutral-900 dark:text-white px-4"
           >
-            CRAFTING DIGITAL<span className="text-chrome"></span> <br />
+            CRAFTING DIGITAL<br />
             <span className="red-glow text-red-600">SOLUTIONS</span>
           </motion.h2>
 
@@ -83,7 +83,7 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="body-md max-w-3xl mx-auto text-neutral-700 dark:text-neutral-medium leading-loose text-lg"
+            className="body-md max-w-3xl mx-auto text-neutral-700 dark:text-neutral-medium leading-relaxed text-base md:text-lg px-4"
           >
             We provide cutting-edge tech solutions including custom websites, AI agents, 
             intelligent automation, and innovative digital experiences for businesses in Nepal.
@@ -98,13 +98,13 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-          className="text-center mb-24"
+          className="text-center mb-12 md:mb-24"
         >
-          <span className="text-red-600 font-bold text-[10px] uppercase tracking-[0.4em] mb-8 block">Our Backbone</span>
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 italic text-neutral-900 dark:text-white">The People Behind <span className="text-red-600">Laevix</span></h2>
+          <span className="text-red-600 font-bold text-xs uppercase tracking-widest mb-6 md:mb-8 block">Our Backbone</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 italic text-neutral-900 dark:text-white px-4">The People Behind <span className="text-red-600">Laevix</span></h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-24 relative">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-16 mb-16 md:mb-24 relative px-4">
           {positions.map((memberIndex, positionIndex) => {
             const member = teamMembers[memberIndex];
             return (
@@ -124,7 +124,7 @@ export function AboutSection() {
                 className="group text-center"
               >
                 {/* Avatar placeholder */}
-                <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 rounded-none bg-neutral-900 flex items-center justify-center overflow-hidden border border-white/5 group-hover:border-red-600 transition-all duration-500 relative">
+                <div className="w-full aspect-square max-w-[140px] md:max-w-none md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-none bg-neutral-900 flex items-center justify-center overflow-hidden border border-white/5 group-hover:border-red-600 transition-all duration-500 relative">
                   <img 
                     src={member.photo} 
                     alt={member.name}
@@ -132,8 +132,8 @@ export function AboutSection() {
                   />
                   <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-bold text-lg uppercase tracking-widest text-neutral-900 dark:text-white mb-2">{member.name}</h3>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-red-600 font-bold">{member.role}</p>
+                <h3 className="font-bold text-sm md:text-base uppercase tracking-wide md:tracking-widest text-neutral-900 dark:text-white mb-1 md:mb-2">{member.name}</h3>
+                <p className="text-[9px] md:text-[10px] uppercase tracking-wider text-red-600 font-bold">{member.role}</p>
               </motion.div>
             );
           })}
@@ -152,8 +152,8 @@ export function AboutSection() {
             className="group relative flex items-center justify-center"
           >
             <div className="absolute inset-0 bg-red-600 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
-            <div className="w-56 h-56 rounded-full border border-red-600/50 flex items-center justify-center p-4 group-hover:bg-red-600 transition-all duration-500 overflow-hidden">
-              <span className="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-neutral-900 dark:text-white italic">• MORE ABOUT US</span>
+            <div className="w-40 h-40 md:w-56 md:h-56 rounded-full border border-red-600/50 flex items-center justify-center p-4 group-hover:bg-red-600 transition-all duration-500 overflow-hidden touch-manipulation">
+              <span className="relative z-10 text-[10px] md:text-xs font-black uppercase tracking-wider md:tracking-[0.2em] text-neutral-900 dark:text-white italic text-center">• MORE ABOUT US</span>
               <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
             </div>
           </motion.button>

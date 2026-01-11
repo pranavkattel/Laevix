@@ -27,16 +27,16 @@ export function WorkSection() {
   const navigate = useNavigate();
 
   return (
-    <section id="work" className="relative bg-neutral-200 dark:bg-black pt-40 pb-20 overflow-hidden border-t border-neutral-300 dark:border-white/5 transition-colors duration-300" ref={ref}>
+    <section id="work" className="relative bg-neutral-200 dark:bg-black pt-24 md:pt-40 pb-12 md:pb-20 overflow-hidden border-t border-neutral-300 dark:border-white/5 transition-colors duration-300" ref={ref}>
       {/* Background Text */}
-      <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none overflow-hidden">
-        <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-800/80 dark:text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
+      <div className="hidden md:flex absolute top-0 left-0 w-full justify-center pointer-events-none select-none overflow-hidden">
+        <h2 className="text-[15vw] md:text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-800/80 dark:text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
           WORK
         </h2>
       </div>
 
       {/* Cross Grid Lines & Markers */}
-      <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none z-0">
+      <div className="hidden md:flex absolute top-0 left-0 w-full justify-between px-[10%] pointer-events-none z-0">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="relative flex flex-col items-center">
             <span className="text-neutral-400 dark:text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
@@ -45,18 +45,18 @@ export function WorkSection() {
         ))}
       </div>
 
-      <div className="container-narrow relative z-10 pt-20">
+      <div className="container-narrow relative z-10 pt-12 md:pt-20 px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-24 flex items-end gap-6"
+          className="mb-16 md:mb-24 flex flex-col md:flex-row items-start md:items-end gap-4 md:gap-6"
         >
           <div className="flex flex-col">
-            <span className="text-red-600 font-bold text-sm uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-red-600" /> Selected Work
+            <span className="text-red-600 font-bold text-xs md:text-sm uppercase tracking-wider md:tracking-[0.3em] mb-2 md:mb-4 flex items-center gap-2">
+              <span className="w-6 md:w-8 h-[2px] bg-red-600" /> Selected Work
             </span>
-            <h2 className="heading-lg m-0">Projects</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-neutral-900 dark:text-white">Projects</h2>
           </div>
           <div className="h-[2px] flex-grow bg-red-600/20 mb-3" />
         </motion.div>
@@ -71,14 +71,14 @@ export function WorkSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.15 }}
-              className="group block relative py-16 border-b border-red-600/10 hover:border-red-600/40 transition-colors duration-500 overflow-hidden"
+              className="group block relative py-10 md:py-16 border-b border-red-600/10 hover:border-red-600/40 transition-colors duration-500 overflow-hidden touch-manipulation"
             >
               {/* Hover Background Reveal */}
               <div className="absolute inset-0 bg-gradient-to-r from-red-600/0 to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-              <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-8 px-4 md:px-8">
-                <div className="flex items-start gap-8">
-                  <span className="text-4xl font-black text-red-600/20 group-hover:text-red-600/80 transition-colors duration-500 leading-none pt-2">
+              <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8 px-0 md:px-4 lg:px-8">
+                <div className="flex items-start gap-4 md:gap-8">
+                  <span className="text-3xl md:text-4xl font-black text-red-600/20 group-hover:text-red-600/80 transition-colors duration-500 leading-none pt-1 md:pt-2">
                     {project.id}
                   </span>
                   <div>
@@ -87,7 +87,7 @@ export function WorkSection() {
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 text-neutral-900 dark:text-white group-hover:red-glow transition-all duration-300">
+                    <h3 className="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-3 md:mb-4 text-neutral-900 dark:text-white group-hover:red-glow transition-all duration-300">
                       {project.name}
                     </h3>
                     <p className="body-md max-w-xl group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-300">
@@ -97,7 +97,7 @@ export function WorkSection() {
                 </div>
 
                 <div className="flex-shrink-0 self-end md:self-center">
-                  <div className="w-16 h-16 border border-white/10 group-hover:border-red-600 flex items-center justify-center group-hover:bg-red-600 transition-all duration-500 transform group-hover:rotate-45">
+                  <div className="w-12 h-12 md:w-16 md:h-16 border border-white/10 group-hover:border-red-600 flex items-center justify-center group-hover:bg-red-600 transition-all duration-500 transform group-hover:rotate-45">
                     <ArrowUpRight className="w-8 h-8 group-hover:-rotate-45 transition-transform duration-500" />
                   </div>
                 </div>

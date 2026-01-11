@@ -54,28 +54,32 @@ export default function Services() {
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-600/10 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '2s' }} />
         </div>
 
-        {/* Background Text */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2 }}
-            className="text-[20vw] font-black uppercase tracking-tighter leading-none text-neutral-800/80 dark:text-neutral-800/50"
-            style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.1)' }}
-          >
-            SERVICES
-          </motion.h1>
-        </div>
-
         {/* Content */}
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center justify-center min-h-[60vh]">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-20"
           >
             <span className="text-red-600 font-bold text-sm uppercase tracking-[0.4em] mb-8 inline-block">What We Do</span>
-            <h2 className="text-4xl md:text-6xl font-normal text-neutral-800 dark:text-neutral-300 leading-relaxed mb-12">
+            <motion.h1 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="text-[15vw] md:text-[12vw] font-black uppercase tracking-tighter leading-none text-neutral-800 dark:text-neutral-800/50 mb-16"
+              style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.1)' }}
+            >
+              SERVICES
+            </motion.h1>
+          </motion.div>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-normal text-neutral-800 dark:text-neutral-300 leading-relaxed">
               We help brands and creative teams to go from idea to digital experience, with design, motion, and development at the core.
             </h2>
           </motion.div>

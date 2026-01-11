@@ -16,19 +16,19 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="relative bg-neutral-300 dark:bg-black pt-56 pb-32 border-t border-neutral-400 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
+    <section id="contact" className="relative bg-neutral-300 dark:bg-black pt-24 md:pt-56 pb-16 md:pb-32 border-t border-neutral-400 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
       {/* Animated Background Gradient Orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: '2s' }} />
+      <div className="hidden md:block absolute top-0 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" />
+      <div className="hidden md:block absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/10 rounded-full blur-[200px] animate-pulse" style={{ animationDelay: '2s' }} />
 
       {/* Background Text */}
-      <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none">
+      <div className="hidden md:flex absolute top-0 left-0 w-full justify-center pointer-events-none select-none">
         <motion.h2 
           initial={{ opacity: 0, y: 100, rotateX: -45 }}
           animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 100, rotateX: -45 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[15vw] font-black uppercase tracking-tighter leading-none translate-y-[-15%] text-neutral-800/80 dark:text-neutral-700/70" 
+          className="text-[12vw] md:text-[15vw] font-black uppercase tracking-tighter leading-none translate-y-[-15%] text-neutral-800/80 dark:text-neutral-700/70" 
           style={{ 
             WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)',
             transformStyle: 'preserve-3d',
@@ -40,14 +40,14 @@ export function ContactSection() {
       </div>
 
       {/* Floating 3D Grid */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="hidden md:block absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 border border-red-600/20 rotate-45 floating-3d" />
         <div className="absolute bottom-1/4 right-1/4 w-40 h-40 border border-red-600/20 rotate-12 floating-3d" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 left-1/3 w-24 h-24 border border-red-600/20 -rotate-12 floating-3d" style={{ animationDelay: '4s' }} />
       </div>
 
       {/* Cross Grid Lines & Markers */}
-      <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none z-0">
+      <div className="hidden md:flex absolute top-0 left-0 w-full justify-between px-[10%] pointer-events-none z-0">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="relative flex flex-col items-center">
             <motion.span 
@@ -63,13 +63,13 @@ export function ContactSection() {
         ))}
       </div>
 
-      <div className="container-narrow relative z-10">
+      <div className="container-narrow relative z-10 px-4 md:px-6">
         {/* Main Heading */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -86,7 +86,7 @@ export function ContactSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-8 leading-[0.9]"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-black tracking-tighter uppercase mb-6 md:mb-8 leading-[0.9] px-4"
           >
             <span className="text-neutral-900 dark:text-white">START YOUR</span> <br />
             <span className="red-glow text-red-600">DIGITAL JOURNEY</span>
@@ -96,7 +96,7 @@ export function ContactSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-neutral-700 dark:text-neutral-400 text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-neutral-700 dark:text-neutral-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-4"
           >
             Ready to elevate your digital presence? Let's create something extraordinary together.
           </motion.p>
@@ -107,7 +107,7 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16"
         >
           {contactMethods.map((method, index) => (
             <motion.a
@@ -118,7 +118,7 @@ export function ContactSection() {
               transition={{ delay: 0.7 + index * 0.1, duration: 0.6 }}
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
-              className="relative group p-8 bg-neutral-900/50 border border-white/5 hover:border-red-600/50 transition-all duration-500 backdrop-blur-sm"
+              className="relative group p-6 md:p-8 bg-neutral-300 dark:bg-neutral-900/50 border border-neutral-400 dark:border-white/5 hover:border-red-600/50 transition-all duration-500 backdrop-blur-sm touch-manipulation"
               style={{ transformStyle: 'preserve-3d' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-red-600/0 to-red-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -131,19 +131,19 @@ export function ContactSection() {
                     scale: hoveredCard === index ? 1.1 : 1
                   }}
                   transition={{ duration: 0.6 }}
-                  className="w-16 h-16 mb-6 bg-red-600/10 border border-red-600/30 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-500"
+                  className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 bg-neutral-400 dark:bg-red-600/10 border border-neutral-500 dark:border-red-600/30 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-500"
                 >
-                  <method.icon className="w-8 h-8 text-red-600 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-500" />
+                  <method.icon className="w-6 h-6 md:w-8 md:h-8 text-red-600 group-hover:text-neutral-100 transition-colors duration-500" />
                 </motion.div>
                 
-                <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-500 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                <h3 className="text-xs md:text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-500 mb-2 group-hover:text-red-600 transition-colors duration-300">
                   {method.label}
                 </h3>
-                <p className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300">
+                <p className="text-base md:text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300 break-words">
                   {method.value}
                 </p>
                 {method.value2 && (
-                  <p className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300">
+                  <p className="text-base md:text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300 break-words">
                     {method.value2}
                   </p>
                 )}
@@ -177,15 +177,15 @@ export function ContactSection() {
             onClick={() => navigate('/contact')}
             whileHover={{ scale: 1.05, rotateZ: 2 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-12 py-6 bg-red-600 text-neutral-100 font-black text-lg uppercase tracking-widest overflow-hidden"
+            className="group relative px-8 md:px-12 py-4 md:py-6 bg-red-600 text-neutral-100 font-black text-base md:text-lg uppercase tracking-widest overflow-hidden touch-manipulation w-full md:w-auto"
           >
-            <div className="absolute inset-0 bg-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-neutral-900 dark:bg-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             
-            <span className="relative z-10 flex items-center gap-4 group-hover:text-black transition-colors duration-300">
-              <Send className="w-6 h-6" />
+            <span className="relative z-10 flex items-center justify-center gap-3 md:gap-4 group-hover:text-neutral-100 dark:group-hover:text-black transition-colors duration-300">
+              <Send className="w-5 h-5 md:w-6 md:h-6" />
               Send Message
-              <ArrowUpRight className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
+              <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 group-hover:rotate-45 transition-transform duration-300" />
             </span>
           </motion.button>
         </motion.div>

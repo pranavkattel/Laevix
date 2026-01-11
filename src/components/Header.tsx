@@ -42,11 +42,11 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-200/80 dark:bg-black/50 backdrop-blur-sm border-b border-neutral-900 dark:border-transparent transition-colors duration-300">
-      <nav className="flex items-center justify-between px-6 md:px-12 lg:px-24 h-16 md:h-24">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-neutral-200/95 dark:bg-black/80 backdrop-blur-md border-b border-neutral-900 dark:border-transparent transition-colors duration-300">
+      <nav className="flex items-center justify-between px-4 md:px-12 lg:px-24 h-16 md:h-20">
         {/* Logo */}
-        <Link to="/" className="group flex items-center gap-2">
-          <img src={laevixLogo} alt="Laevix" className="w-12 h-12 transition-all duration-300" />
+        <Link to="/" className="group flex items-center gap-2 z-50">
+          <img src={laevixLogo} alt="Laevix" className="w-10 h-10 md:w-12 md:h-12 transition-all duration-300" />
         </Link>
 
         {/* Desktop Navigation - Centered style */}

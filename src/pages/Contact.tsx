@@ -77,7 +77,7 @@ export default function Contact() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-24">
+      <section className="relative min-h-screen flex items-center justify-center bg-neutral-300 dark:bg-black overflow-hidden pt-24 transition-colors duration-300">
         {/* Animated Background Gradient Orbs */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
@@ -89,7 +89,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 100, rotateX: -45 }}
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-[15vw] font-black uppercase tracking-tighter leading-none text-neutral-700/70" 
+            className="text-[15vw] font-black uppercase tracking-tighter leading-none text-neutral-800/80 dark:text-neutral-700/70" 
             style={{ 
               WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)',
               textShadow: '0 0 80px rgba(239, 68, 68, 0.3)'
@@ -107,11 +107,11 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <span className="text-red-600 font-bold text-sm uppercase tracking-[0.4em] mb-8 inline-block">Let's Connect</span>
-            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-8 leading-tight text-neutral-900 dark:text-white">
               LET'S BUILD<br />
               <span className="text-red-600">SOMETHING GREAT</span>
             </h2>
-            <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
+            <p className="text-xl text-neutral-700 dark:text-neutral-400 max-w-2xl mx-auto">
               We're always excited to take on new projects and collaborate with creative minds.
             </p>
           </motion.div>
@@ -146,7 +146,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Form */}
-      <section ref={ref} className="relative bg-black py-32">
+      <section ref={ref} className="relative bg-neutral-200 dark:bg-black py-32 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -154,11 +154,11 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
               Ready to start your<br />
               <span className="text-red-600">digital journey?</span>
             </h2>
-            <p className="text-xl text-neutral-400">
+            <p className="text-xl text-neutral-700 dark:text-neutral-400">
               Drop us a message and let's discuss how we can help bring your vision to life.
             </p>
           </motion.div>
@@ -191,7 +191,7 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
                   Name
                 </label>
                 <input
@@ -200,12 +200,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-neutral-900 border border-white/10 text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                  className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
                   Email
                 </label>
                 <input
@@ -214,14 +214,14 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 bg-neutral-900 border border-white/10 text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                  className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
                 Subject
               </label>
               <input
@@ -230,13 +230,13 @@ export default function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full px-6 py-4 bg-neutral-900 border border-white/10 text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
                 placeholder="What's this about?"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold uppercase tracking-widest text-neutral-400 mb-3">
+              <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
                 Message
               </label>
               <textarea
@@ -245,7 +245,7 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={8}
-                className="w-full px-6 py-4 bg-neutral-900 border border-white/10 text-white focus:border-red-600 focus:outline-none transition-colors duration-300 resize-none"
+                className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300 resize-none"
                 placeholder="Tell us about your project..."
               />
             </div>
@@ -257,8 +257,8 @@ export default function Contact() {
               whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               className={`group w-full py-6 font-bold text-lg uppercase tracking-widest transition-all duration-300 relative overflow-hidden flex items-center justify-center gap-4 ${
                 isSubmitting
-                  ? 'bg-neutral-700 text-neutral-400 cursor-not-allowed'
-                  : 'bg-red-600 text-white hover:bg-white hover:text-black'
+                  ? 'bg-neutral-400 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 cursor-not-allowed'
+                  : 'bg-red-600 text-neutral-100 hover:bg-neutral-900 dark:hover:bg-white hover:text-neutral-100 dark:hover:text-black'
               }`}
             >
               <Send className={`w-6 h-6 transition-transform duration-300 ${isSubmitting ? 'animate-pulse' : 'group-hover:rotate-45'}`} />
@@ -282,19 +282,19 @@ export default function Contact() {
                 <a
                   key={index}
                   href={method.link}
-                  className="group p-8 bg-neutral-900/50 border border-white/5 hover:border-red-600/50 transition-all duration-300 text-center"
+                  className="group p-8 bg-neutral-300 dark:bg-neutral-900/50 border border-neutral-400 dark:border-white/5 hover:border-red-600/50 transition-all duration-300 text-center"
                 >
                   <div className="mb-4 flex items-center justify-center">
                     <Icon className="w-8 h-8 text-red-600 group-hover:scale-110 transition-transform duration-300" />
                   </div>
-                  <h3 className="text-sm font-bold uppercase tracking-wider text-white mb-2">
+                  <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-900 dark:text-white mb-2">
                     {method.label}
                   </h3>
-                  <p className="text-sm text-neutral-400 group-hover:text-white transition-colors duration-300">
+                  <p className="text-sm text-neutral-700 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300">
                     {method.value}
                   </p>
                   {method.value2 && (
-                    <p className="text-sm text-neutral-400 group-hover:text-white transition-colors duration-300">
+                    <p className="text-sm text-neutral-700 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300">
                       {method.value2}
                     </p>
                   )}
