@@ -17,10 +17,11 @@ const faqs = [
 ];
 
 const teamMembers = [
-  { name: 'Amiks Karki', role: 'Co-founder' },
-  { name: 'Satyam Dulal', role: 'Co-founder' },
+  { name: 'Amiks Karki', role: 'CFO' },
+  { name: 'Satyam Dulal', role: 'CTO' },
   { name: 'Pranav Kattel', role: 'Co-founder' },
   { name: 'Abhiyan Dahal', role: 'Co-founder' },
+  { name: 'Aditiya Aryal', role: 'System Administrator' },
 ];
 
 export default function About() {
@@ -29,7 +30,7 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const faqInView = useInView(faqRef, { once: true, margin: "-100px" });
   const navigate = useNavigate();
-  const [positions, setPositions] = useState([0, 1, 2, 3]);
+  const [positions, setPositions] = useState([0, 1, 2, 3, 4]);
 
   useEffect(() => {
     const interval = setInterval(() => {

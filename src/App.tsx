@@ -48,10 +48,16 @@ const CustomCursor = () => {
   }, []);
 
   useEffect(() => {
-    const trailTimeout = setTimeout(() => {
-      setTrail(position);
-    }, 50);
-    return () => clearTimeout(trailTimeout);
+    let animationId: number;
+    const animate = () => {
+      setTrail(prev => ({
+        x: prev.x + (position.x - prev.x) * 0.1,
+        y: prev.y + (position.y - prev.y) * 0.1
+      }));
+      animationId = requestAnimationFrame(animate);
+    };
+    animationId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationId);
   }, [position]);
 
   return (

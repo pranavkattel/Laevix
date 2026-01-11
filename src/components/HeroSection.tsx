@@ -281,13 +281,13 @@ export function HeroSection() {
                       style={{
                         textShadow: '0 0 40px rgba(239, 68, 68, 0.5), 0 0 80px rgba(239, 68, 68, 0.3)'
                       }}>
-                    FUTURE-READY
+                    Where Ideas Meets
                   </h3>
                   <h3 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-red-600"
                       style={{
                         textShadow: '0 0 40px rgba(239, 68, 68, 0.8)'
                       }}>
-                    TECHNOLOGY
+                    Execution
                   </h3>
                 </motion.div>
               </div>

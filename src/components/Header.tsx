@@ -44,8 +44,7 @@ export function Header() {
       <nav className="flex items-center justify-between px-6 md:px-12 lg:px-24 h-16 md:h-24">
         {/* Logo */}
         <Link to="/" className="group flex items-center gap-2">
-          <img src={laevixLogo} alt="Laevix" className="w-8 h-8 grayscale group-hover:grayscale-0 transition-all duration-300" />
-          <span className="text-xl font-black uppercase tracking-tighter text-white group-hover:text-red-600 transition-colors">Laevix</span>
+          <img src={laevixLogo} alt="Laevix" className="w-12 h-12 transition-all duration-300" />
         </Link>
 
         {/* Desktop Navigation - Centered style */}
