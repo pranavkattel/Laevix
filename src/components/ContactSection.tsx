@@ -16,7 +16,7 @@ export function ContactSection() {
   ];
 
   return (
-    <section id="contact" className="relative bg-black pt-56 pb-32 border-t border-white/5 overflow-hidden" ref={ref}>
+    <section id="contact" className="relative bg-neutral-300 dark:bg-black pt-56 pb-32 border-t border-neutral-400 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
       {/* Animated Background Gradient Orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-[150px] animate-pulse" style={{ animationDelay: '1s' }} />
@@ -28,7 +28,7 @@ export function ContactSection() {
           initial={{ opacity: 0, y: 100, rotateX: -45 }}
           animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 100, rotateX: -45 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-[15vw] font-black uppercase tracking-tighter leading-none translate-y-[-15%] text-neutral-700/70" 
+          className="text-[15vw] font-black uppercase tracking-tighter leading-none translate-y-[-15%] text-neutral-800/80 dark:text-neutral-700/70" 
           style={{ 
             WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)',
             transformStyle: 'preserve-3d',
@@ -88,7 +88,7 @@ export function ContactSection() {
             transition={{ delay: 0.3, duration: 0.8 }}
             className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-8 leading-[0.9]"
           >
-            <span className="text-white">START YOUR</span> <br />
+            <span className="text-neutral-900 dark:text-white">START YOUR</span> <br />
             <span className="red-glow text-red-600">DIGITAL JOURNEY</span>
           </motion.h2>
 
@@ -96,7 +96,7 @@ export function ContactSection() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ delay: 0.5 }}
-            className="text-neutral-400 text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-neutral-700 dark:text-neutral-400 text-lg max-w-2xl mx-auto leading-relaxed"
           >
             Ready to elevate your digital presence? Let's create something extraordinary together.
           </motion.p>
@@ -133,17 +133,17 @@ export function ContactSection() {
                   transition={{ duration: 0.6 }}
                   className="w-16 h-16 mb-6 bg-red-600/10 border border-red-600/30 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-500"
                 >
-                  <method.icon className="w-8 h-8 text-red-600 group-hover:text-white transition-colors duration-500" />
+                  <method.icon className="w-8 h-8 text-red-600 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-500" />
                 </motion.div>
                 
-                <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-500 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-500 mb-2 group-hover:text-red-600 transition-colors duration-300">
                   {method.label}
                 </h3>
-                <p className="text-xl font-bold text-white group-hover:text-red-600 transition-colors duration-300">
+                <p className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300">
                   {method.value}
                 </p>
                 {method.value2 && (
-                  <p className="text-xl font-bold text-white group-hover:text-red-600 transition-colors duration-300">
+                  <p className="text-xl font-bold text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-300">
                     {method.value2}
                   </p>
                 )}
@@ -177,9 +177,9 @@ export function ContactSection() {
             onClick={() => navigate('/contact')}
             whileHover={{ scale: 1.05, rotateZ: 2 }}
             whileTap={{ scale: 0.95 }}
-            className="group relative px-12 py-6 bg-red-600 text-white font-black text-lg uppercase tracking-widest overflow-hidden"
+            className="group relative px-12 py-6 bg-red-600 text-neutral-100 font-black text-lg uppercase tracking-widest overflow-hidden"
           >
-            <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute inset-0 bg-neutral-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             
             <span className="relative z-10 flex items-center gap-4 group-hover:text-black transition-colors duration-300">

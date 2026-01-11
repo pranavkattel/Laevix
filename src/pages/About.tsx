@@ -53,18 +53,18 @@ export default function About() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-neutral-200 dark:bg-black transition-colors duration-300">
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-black overflow-hidden pt-24">
+      <section className="relative min-h-screen flex items-center justify-center bg-neutral-300 dark:bg-black overflow-hidden pt-24 transition-colors duration-300">
         {/* Background Text */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
           <motion.h1 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2 }}
-            className="text-[18vw] font-black uppercase tracking-tighter leading-none text-neutral-800/50"
+            className="text-[18vw] font-black uppercase tracking-tighter leading-none text-neutral-800/80 dark:text-neutral-800/50"
             style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.1)' }}
           >
             BEHIND<br/>THE WORK
@@ -79,17 +79,17 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="mb-12">
-              <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-6">
+              <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tight mb-6 text-neutral-900 dark:text-white">
                 LAEVIX <span className="text-red-600">[32]</span>
               </h2>
-              <p className="text-xl text-neutral-400">NEPAL</p>
+              <p className="text-xl text-neutral-700 dark:text-neutral-400">NEPAL</p>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Bio Section */}
-      <section ref={ref} className="relative bg-black py-32">
+      <section ref={ref} className="relative bg-neutral-200 dark:bg-black py-32 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -97,10 +97,10 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <span className="text-red-600 font-bold text-sm uppercase tracking-[0.4em] mb-8 inline-block">• About</span>
-            <h2 className="text-4xl md:text-5xl font-normal text-neutral-300 leading-relaxed mb-12">
+            <h2 className="text-4xl md:text-5xl font-normal text-neutral-800 dark:text-neutral-300 leading-relaxed mb-12">
               We are a Nepali tech team specializing in next-generation digital solutions. From custom websites and web applications to AI agents and intelligent automation, we combine cutting-edge technology with exceptional design to deliver transformative experiences.
             </h2>
-            <p className="text-xl text-neutral-400 leading-relaxed mb-8">
+            <p className="text-xl text-neutral-700 dark:text-neutral-400 leading-relaxed mb-8">
               Our expertise spans web development, AI integration, machine learning solutions, and intelligent automation systems. We help businesses leverage the power of modern technology to stay ahead in the digital age, creating solutions that are not just beautiful, but smart and efficient.
             </p>
           </motion.div>
@@ -108,7 +108,7 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="relative bg-neutral-950 py-32">
+      <section className="relative bg-neutral-300 dark:bg-neutral-950 py-32 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -118,7 +118,7 @@ export default function About() {
             className="text-center mb-20"
           >
             <span className="text-red-600 font-bold text-xs uppercase tracking-[0.4em] mb-4 block">Our Backbone</span>
-            <h3 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic">
+            <h3 className="text-5xl md:text-6xl font-black uppercase tracking-tighter italic text-neutral-900 dark:text-white">
               The People Behind <span className="text-red-600">Laevix</span>
             </h3>
           </motion.div>
@@ -140,7 +140,7 @@ export default function About() {
                   viewport={{ once: true }}
                   className="group text-center"
                 >
-                  <div className="w-full aspect-square mb-6 bg-neutral-900 border border-white/5 flex items-center justify-center group-hover:border-red-600 transition-all duration-500 relative overflow-hidden">
+                  <div className="w-full aspect-square mb-6 bg-neutral-400 dark:bg-neutral-900 border border-neutral-500 dark:border-white/5 flex items-center justify-center group-hover:border-red-600 transition-all duration-500 relative overflow-hidden">
                     {member.photo ? (
                       <img 
                         src={member.photo} 
@@ -148,13 +148,13 @@ export default function About() {
                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
                       />
                     ) : (
-                      <span className="text-5xl font-black text-neutral-800 tracking-tighter group-hover:text-red-600 transition-colors z-10 relative">
+                      <span className="text-5xl font-black text-neutral-600 dark:text-neutral-800 tracking-tighter group-hover:text-red-600 transition-colors z-10 relative">
                         {member.name.split(' ').map(n => n[0]).join('')}
                       </span>
                     )}
                     <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <h4 className="font-bold text-lg uppercase tracking-widest text-white mb-2">{member.name}</h4>
+                  <h4 className="font-bold text-lg uppercase tracking-widest text-neutral-900 dark:text-white mb-2">{member.name}</h4>
                   <p className="text-xs uppercase tracking-wider text-red-600 font-bold">{member.role}</p>
                 </motion.div>
               );
@@ -164,7 +164,7 @@ export default function About() {
       </section>
 
       {/* FAQ Section */}
-      <section ref={faqRef} className="relative bg-black py-32">
+      <section ref={faqRef} className="relative bg-neutral-200 dark:bg-black py-32 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
             {/* Left Column - Title */}
@@ -175,8 +175,8 @@ export default function About() {
                 transition={{ duration: 0.8 }}
                 className="lg:sticky lg:top-32"
               >
-                <h3 className="text-6xl md:text-7xl font-black uppercase tracking-tighter mb-6">FAQ</h3>
-                <p className="text-neutral-400 text-lg leading-relaxed">
+                <h3 className="text-6xl md:text-7xl font-black uppercase tracking-tighter mb-6 text-neutral-900 dark:text-white">FAQ</h3>
+                <p className="text-neutral-700 dark:text-neutral-400 text-lg leading-relaxed">
                   If your question is not answered here, feel free to reach out to us above.
                 </p>
               </motion.div>
@@ -191,16 +191,16 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={faqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
-                    className="group border-t border-white/10 py-8 cursor-pointer"
+                    className="group border-t border-neutral-300 dark:border-white/10 py-8 cursor-pointer"
                   >
-                    <summary className="flex items-center justify-between text-xl md:text-2xl font-bold text-neutral-300 group-hover:text-white transition-colors list-none">
+                    <summary className="flex items-center justify-between text-xl md:text-2xl font-bold text-neutral-800 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors list-none">
                       <span className="pr-8">{faq.question}</span>
-                      <span className="text-3xl text-neutral-600 group-hover:text-red-600 transition-colors flex-shrink-0">+</span>
+                      <span className="text-3xl text-neutral-500 dark:text-neutral-600 group-hover:text-red-600 transition-colors flex-shrink-0">+</span>
                     </summary>
                     <motion.p 
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
-                      className="mt-6 text-lg text-neutral-400 leading-relaxed"
+                      className="mt-6 text-lg text-neutral-700 dark:text-neutral-400 leading-relaxed"
                     >
                       {faq.answer}
                     </motion.p>
@@ -213,7 +213,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-neutral-950 py-32">
+      <section className="relative bg-neutral-300 dark:bg-neutral-950 py-32 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -221,22 +221,22 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+            <h3 className="text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white mb-8 leading-tight">
               Ready to start your<br />
               <span className="text-red-600">digital journey?</span>
             </h3>
-            <p className="text-xl text-neutral-400 mb-12">
+            <p className="text-xl text-neutral-700 dark:text-neutral-400 mb-12">
               Drop us a message and let's discuss how we can help bring your vision to life.
             </p>
             <motion.button
               onClick={() => navigate('/contact')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-white font-bold text-lg uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 relative overflow-hidden"
+              className="group inline-flex items-center gap-4 px-12 py-6 bg-red-600 text-neutral-100 font-bold text-lg uppercase tracking-widest hover:bg-neutral-900 hover:text-neutral-100 transition-all duration-300 relative overflow-hidden"
             >
               <Send className="w-6 h-6 group-hover:rotate-45 transition-transform duration-300" />
               Send Message
-              <div className="absolute inset-0 bg-white/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+              <div className="absolute inset-0 bg-neutral-900/10 translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </motion.button>
           </motion.div>
         </div>

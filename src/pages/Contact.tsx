@@ -73,7 +73,7 @@ export default function Contact() {
   ];
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-neutral-200 dark:bg-black transition-colors duration-300">
       <Header />
       
       {/* Hero Section */}

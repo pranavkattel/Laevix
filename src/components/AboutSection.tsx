@@ -37,14 +37,14 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="relative bg-black pt-40 pb-20 border-t border-white/5 overflow-hidden" ref={ref}>
+    <section id="about" className="relative bg-neutral-200 dark:bg-black pt-40 pb-20 border-t border-neutral-300 dark:border-white/5 overflow-hidden transition-colors duration-300" ref={ref}>
       {/* Background Text */}
       <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none overflow-hidden">
         <motion.h2 
           initial={{ opacity: 0, y: 100 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-25%] text-neutral-700/70" 
+          className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-25%] text-neutral-800/80 dark:text-neutral-700/70" 
           style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}
         >
           ABOUT
@@ -55,7 +55,7 @@ export function AboutSection() {
       <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none z-0">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="relative flex flex-col items-center">
-            <span className="text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
+            <span className="text-neutral-400 dark:text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
             <div className="w-[1px] h-full bg-white/5" />
           </div>
         ))}
@@ -73,17 +73,17 @@ export function AboutSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-16 leading-[0.9]"
+            className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-16 leading-[0.9] text-neutral-900 dark:text-white"
           >
-            CRAFTING <span className="text-chrome">DIGITAL</span> <br />
-            <span className="red-glow">SOLUTIONS</span>
+            CRAFTING DIGITAL<span className="text-chrome"></span> <br />
+            <span className="red-glow text-red-600">SOLUTIONS</span>
           </motion.h2>
 
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="body-md max-w-3xl mx-auto text-neutral-medium leading-loose text-lg"
+            className="body-md max-w-3xl mx-auto text-neutral-700 dark:text-neutral-medium leading-loose text-lg"
           >
             We provide cutting-edge tech solutions including custom websites, AI agents, 
             intelligent automation, and innovative digital experiences for businesses in Nepal.
@@ -101,7 +101,7 @@ export function AboutSection() {
           className="text-center mb-24"
         >
           <span className="text-red-600 font-bold text-[10px] uppercase tracking-[0.4em] mb-8 block">Our Backbone</span>
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 italic">The People Behind <span className="text-red-600">Laevix</span></h2>
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-4 italic text-neutral-900 dark:text-white">The People Behind <span className="text-red-600">Laevix</span></h2>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 mb-24 relative">
@@ -132,7 +132,7 @@ export function AboutSection() {
                   />
                   <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <h3 className="font-bold text-lg uppercase tracking-widest text-white mb-2">{member.name}</h3>
+                <h3 className="font-bold text-lg uppercase tracking-widest text-neutral-900 dark:text-white mb-2">{member.name}</h3>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-red-600 font-bold">{member.role}</p>
               </motion.div>
             );
@@ -153,7 +153,7 @@ export function AboutSection() {
           >
             <div className="absolute inset-0 bg-red-600 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
             <div className="w-56 h-56 rounded-full border border-red-600/50 flex items-center justify-center p-4 group-hover:bg-red-600 transition-all duration-500 overflow-hidden">
-              <span className="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-white italic">• MORE ABOUT US</span>
+              <span className="relative z-10 text-xs font-black uppercase tracking-[0.2em] text-neutral-900 dark:text-white italic">• MORE ABOUT US</span>
               <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 rounded-full" />
             </div>
           </motion.button>

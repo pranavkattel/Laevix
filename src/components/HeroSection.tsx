@@ -124,7 +124,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative h-screen bg-black overflow-hidden"
+      className="relative h-screen bg-neutral-200 dark:bg-black overflow-hidden transition-colors duration-300"
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center pt-20 px-6">
 
@@ -137,7 +137,7 @@ export function HeroSection() {
             <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:border-red-600 transition-colors">
               <div className="w-2 h-2 bg-red-600 rounded-full" />
             </div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/50 group-hover:text-white transition-colors">Play Showreel</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-neutral-500 dark:text-white/50 group-hover:text-neutral-800 dark:group-hover:text-white transition-colors">Play Showreel</span>
           </motion.button>
         </div>
 
@@ -145,7 +145,7 @@ export function HeroSection() {
         <div className="relative z-10 flex flex-col items-center text-center -translate-y-[25%] md:-translate-y-[35%]">
           <motion.h1
             animate={{ opacity: textOpacity }}
-            className="text-[10vw] font-black uppercase tracking-tighter leading-[0.8] text-white"
+            className="text-[10vw] font-black uppercase tracking-tighter leading-[0.8] text-neutral-900 dark:text-white"
           >
             SOLUTIONS THAT
           </motion.h1>
@@ -156,7 +156,7 @@ export function HeroSection() {
               WebkitTextStroke: '2px rgba(239, 68, 68, 0.5)'
             }}
             animate={{ y: moveTextScrollY }}
-            className="text-[18vw] font-black uppercase tracking-tighter leading-[0.8] text-neutral-800/50 relative"
+            className="text-[18vw] font-black uppercase tracking-tighter leading-[0.8] text-neutral-800/40 dark:text-neutral-800/50 relative"
           >
             SCALE
           </motion.h1>
@@ -171,9 +171,9 @@ export function HeroSection() {
           transition={{ type: "tween", ease: "easeOut", duration: 0.1 }}
           className="absolute bottom-0 w-full max-w-5xl aspect-video px-4 z-30"
         >
-          <div className="relative w-full h-full bg-[#1a1a1a] rounded-t-2xl p-6 shadow-[0_-50px_100px_rgba(0,0,0,0.8)] border-x border-t border-white/10">
+          <div className="relative w-full h-full bg-neutral-300 dark:bg-[#1a1a1a] rounded-t-2xl p-6 shadow-[0_-50px_100px_rgba(0,0,0,0.8)] dark:shadow-[0_-50px_100px_rgba(0,0,0,0.8)] shadow-[0_-50px_100px_rgba(0,0,0,0.2)] border-x border-t border-neutral-400 dark:border-white/10">
             {/* Screen */}
-            <div className="relative w-full h-full bg-black rounded-lg overflow-hidden border border-white/5">
+            <div className="relative w-full h-full bg-neutral-400 dark:bg-black rounded-lg overflow-hidden border border-neutral-500 dark:border-white/5">
               <video
                 ref={videoRef}
                 loop
@@ -277,7 +277,7 @@ export function HeroSection() {
                   }}
                   className="text-center"
                 >
-                  <h3 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white mb-2"
+                  <h3 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-neutral-900 dark:text-white mb-2"
                       style={{
                         textShadow: '0 0 40px rgba(239, 68, 68, 0.5), 0 0 80px rgba(239, 68, 68, 0.3)'
                       }}>
@@ -300,12 +300,12 @@ export function HeroSection() {
 
         {/* Bottom Metadata */}
         <div className="absolute bottom-12 left-8 md:left-24 right-8 md:right-24 flex flex-col md:flex-row items-end justify-between gap-8 z-40">
-          <div className="text-[10px] font-bold uppercase tracking-widest text-neutral-600 leading-loose">
+          <div className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-600 leading-loose">
             POWERED BY LAEVIX <br />
             NEPAL 🇳🇵 {new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })} NPT
           </div>
 
-          <div className="max-w-xs text-[10px] font-bold uppercase tracking-widest text-right text-neutral-500 leading-relaxed">
+          <div className="max-w-xs text-[10px] font-bold uppercase tracking-widest text-right text-neutral-500 dark:text-neutral-500 leading-relaxed">
             We build intelligent solutions - websites, AI agents & automation systems that scale with your ambition.
           </div>
         </div>

@@ -27,10 +27,10 @@ export function WorkSection() {
   const navigate = useNavigate();
 
   return (
-    <section id="work" className="relative bg-black pt-40 pb-20 overflow-hidden border-t border-white/5" ref={ref}>
+    <section id="work" className="relative bg-neutral-200 dark:bg-black pt-40 pb-20 overflow-hidden border-t border-neutral-300 dark:border-white/5 transition-colors duration-300" ref={ref}>
       {/* Background Text */}
       <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none overflow-hidden">
-        <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
+        <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-800/80 dark:text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
           WORK
         </h2>
       </div>
@@ -39,7 +39,7 @@ export function WorkSection() {
       <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none z-0">
         {[0, 1, 2, 3].map((i) => (
           <div key={i} className="relative flex flex-col items-center">
-            <span className="text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
+            <span className="text-neutral-400 dark:text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
             <div className="w-[1px] h-full bg-white/5" />
           </div>
         ))}
@@ -83,14 +83,14 @@ export function WorkSection() {
                   </span>
                   <div>
                     <div className="flex items-center gap-4 mb-4">
-                      <span className="bg-red-600 text-[10px] font-bold uppercase tracking-widest text-white px-3 py-1">
+                      <span className="bg-red-600 text-[10px] font-bold uppercase tracking-widest text-neutral-100 px-3 py-1">
                         {project.category}
                       </span>
                     </div>
-                    <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 text-white group-hover:red-glow transition-all duration-300">
+                    <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-4 text-neutral-900 dark:text-white group-hover:red-glow transition-all duration-300">
                       {project.name}
                     </h3>
-                    <p className="body-md max-w-xl group-hover:text-white transition-colors duration-300">
+                    <p className="body-md max-w-xl group-hover:text-neutral-800 dark:group-hover:text-white transition-colors duration-300">
                       {project.description}
                     </p>
                   </div>
@@ -113,7 +113,7 @@ export function WorkSection() {
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <button onClick={() => navigate('/work')} className="px-12 py-4 bg-transparent border border-red-600 text-white font-bold uppercase tracking-widest hover:bg-red-600 transition-all duration-300 relative group overflow-hidden">
+          <button onClick={() => navigate('/work')} className="px-12 py-4 bg-transparent border border-red-600 text-neutral-900 dark:text-white font-bold uppercase tracking-widest hover:bg-red-600 hover:text-neutral-100 transition-all duration-300 relative group overflow-hidden">
             <span className="relative z-10 uppercase tracking-widest text-sm italic">• DISCOVER MORE</span>
             <div className="absolute inset-0 bg-red-600 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </button>

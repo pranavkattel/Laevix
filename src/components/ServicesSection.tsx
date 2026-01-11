@@ -29,10 +29,10 @@ export function ServicesSection() {
     const navigate = useNavigate();
     
     return (
-        <section id="services" className="relative bg-black pt-56 pb-32 border-t border-white/5 overflow-hidden">
+        <section id="services" className="relative bg-neutral-300 dark:bg-black pt-56 pb-32 border-t border-neutral-400 dark:border-white/5 overflow-hidden transition-colors duration-300">
             {/* Background Text */}
             <div className="absolute top-0 left-0 w-full flex justify-center pointer-events-none select-none overflow-hidden">
-                <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
+                <h2 className="text-[10vw] font-black uppercase tracking-tighter leading-none translate-y-[-10%] text-neutral-800/80 dark:text-neutral-700/70" style={{ WebkitTextStroke: '2px rgba(255, 255, 255, 0.25)' }}>
                     SERVICES
                 </h2>
             </div>
@@ -42,7 +42,7 @@ export function ServicesSection() {
                 <div className="absolute top-0 left-0 w-full flex justify-between px-[10%] pointer-events-none">
                     {[0, 1, 2, 3].map((i) => (
                         <div key={i} className="relative flex flex-col items-center">
-                            <span className="text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
+                            <span className="text-neutral-400 dark:text-neutral-500 text-xl font-light -translate-y-1/2">+</span>
                             <div className="w-[1px] h-screen bg-white/5" />
                         </div>
                     ))}
@@ -69,11 +69,11 @@ export function ServicesSection() {
                                 </div>
 
                                 <h3 className="text-6xl md:text-7xl font-black tracking-tighter mb-6 uppercase">
-                                    <span className="text-neutral-600">{service.letter}</span>
-                                    <span className="text-white">{service.rest}</span>
+                                    <span className="text-neutral-400 dark:text-neutral-600">{service.letter}</span>
+                                    <span className="text-neutral-900 dark:text-white">{service.rest}</span>
                                 </h3>
 
-                                <p className="text-neutral-400 text-sm md:text-base leading-relaxed font-normal">
+                                <p className="text-neutral-700 dark:text-neutral-400 text-sm md:text-base leading-relaxed font-normal">
                                     {service.description}
                                 </p>
                             </motion.div>
@@ -90,7 +90,7 @@ export function ServicesSection() {
                         transition={{ delay: 0.8 }}
                         viewport={{ once: true }}
                         whileHover={{ scale: 1.05 }}
-                        className="group relative px-8 py-3 bg-white text-black font-bold text-sm uppercase tracking-widest hover:bg-red-600 hover:text-white transition-colors duration-300"
+                        className="group relative px-8 py-3 bg-neutral-800 dark:bg-white text-neutral-100 dark:text-black font-bold text-sm uppercase tracking-widest hover:bg-red-600 hover:text-neutral-100 transition-colors duration-300"
                     >
                         • DISCOVER MORE
                     </motion.button>

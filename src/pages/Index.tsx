@@ -9,11 +9,11 @@ import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background transition-colors duration-300">
       <Header />
       <main>
         <HeroSection />
-        <div className="h-32 md:h-40 bg-black" />
+        <div className="h-32 md:h-40 bg-neutral-200 dark:bg-black transition-colors duration-300" />
         <AboutSection />
         <ServicesSection />
         <WorkSection />
