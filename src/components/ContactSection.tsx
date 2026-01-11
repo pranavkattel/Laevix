@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, ArrowUpRight, Send, MessageSquare, Phone } from 'lucide-react';
+import { Mail, ArrowUpRight, Send, Phone, MapPin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export function ContactSection() {
@@ -10,9 +10,9 @@ export function ContactSection() {
   const navigate = useNavigate();
 
   const contactMethods = [
-    { icon: Mail, label: 'Email', value: 'hello@laevix.com', link: 'mailto:hello@laevix.com' },
-    { icon: Phone, label: 'Phone', value: '+977 9876543210', link: 'tel:+9779876543210' },
-    { icon: MessageSquare, label: 'Discord', value: '@laevix', link: '#' },
+    { icon: Mail, label: 'Email', value: 'contact@laevix.org', link: 'mailto:contact@laevix.org' },
+    { icon: Phone, label: 'Phone', value: '+977 9768434350, +977 9820229166', link: 'tel:+9779768434350', note: 'WhatsApp available' },
+    { icon: MapPin, label: 'Location', value: 'Gokarneshwor Jorpati, Kathmandu, Nepal', link: '#' },
   ];
 
   return (
@@ -141,8 +141,11 @@ export function ContactSection() {
                 </h3>
                 <p className="text-xl font-bold text-white group-hover:text-red-600 transition-colors duration-300">
                   {method.value}
-                </p>
-              </div>
+                </p>                {method.note && (
+                  <p className=\"text-xs text-red-500 font-semibold mt-3 uppercase tracking-widest\">
+                    ✓ {method.note}
+                  </p>
+                )}              </div>
 
               <motion.div
                 className="absolute -bottom-2 -right-2 w-8 h-8 border-b-2 border-r-2 border-red-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
