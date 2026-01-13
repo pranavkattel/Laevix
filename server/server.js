@@ -162,7 +162,7 @@ const getAutoReplyHTML = (name) => `
 `;
 
 // Notification email template for yourself
-const getNotificationHTML = (name, email, subject, message) => `
+const getNotificationHTML = (name, email, serviceType, customService, message, phone, notificationPreference, connectionPreference) => `
 <!DOCTYPE html>
 <html>
 <head>
@@ -259,20 +259,35 @@ const getNotificationHTML = (name, email, subject, message) => `
       </div>
       
       <div class="field">
+        <div class="label">Service Type</div>
+        <div class="value">${serviceType === 'website' ? 'Website Development' : serviceType === 'ai' ? 'AI Solutions' : serviceType === 'software' ? 'Custom Software' : 'Other - ' + customService}</div>
+      </div>
+      
+      <div class="field">
         <div class="label">Email Address</div>
         <div class="value">${email}</div>
       </div>
       
-      <div class="field">
-        <div class="label">Subject</div>
-        <div class="value">${subject}</div>
-      </div>
+      ${phone ? `<div class="field">
+        <div class="label">Phone Number</div>
+        <div class="value">${phone}</div>
+      </div>` : ''}
       
       <div class="field">
-        <div class="label">Message</div>
+        <div class="label">Project Details</div>
         <div class="message-box">
           <div class="value">${message.replace(/\n/g, '<br>')}</div>
         </div>
+      </div>
+      
+      <div class="field">
+        <div class="label">Preferred Notification Method</div>
+        <div class="value">${notificationPreference.charAt(0).toUpperCase() + notificationPreference.slice(1)}</div>
+      </div>
+      
+      <div class="field">
+        <div class="label">Preferred Connection Method</div>
+        <div class="value">${connectionPreference.charAt(0).toUpperCase() + connectionPreference.slice(1)}</div>
       </div>
     </div>
     
@@ -287,13 +302,21 @@ const getNotificationHTML = (name, email, subject, message) => `
 
 // Send email endpoint
 app.post('/api/send-email', async (req, res) => {
-  const { name, email, subject, message } = req.body;
+  const { name, email, serviceType, customService, message, phone, notificationPreference, connectionPreference } = req.body;
 
   // Validate input
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !serviceType || !message) {
     return res.status(400).json({ 
       success: false, 
-      message: 'All fields are required' 
+      message: 'Name, email, service type, and project details are required' 
+    });
+  }
+
+  // If service type is "other", customService is required
+  if (serviceType === 'other' && !customService) {
+    return res.status(400).json({ 
+      success: false, 
+      message: 'Please describe your custom service needs' 
     });
   }
 
@@ -302,8 +325,8 @@ app.post('/api/send-email', async (req, res) => {
     await adminTransporter.sendMail({
       from: '"Laevix Contact Form" <admin@laevix.org>',
       to: 'contact@laevix.org',
-      subject: `New Contact: ${subject}`,
-      html: getNotificationHTML(name, email, subject, message),
+      subject: `New Contact: ${serviceType === 'website' ? 'Website Development' : serviceType === 'ai' ? 'AI Solutions' : serviceType === 'software' ? 'Custom Software' : 'Custom Project'} - ${name}`,
+      html: getNotificationHTML(name, email, serviceType, customService, message, phone, notificationPreference, connectionPreference),
       replyTo: email
     });
 
