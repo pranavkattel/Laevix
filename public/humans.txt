@@ -3,8 +3,8 @@
 /* TEAM */
 Company: Laevix
 Location: Kathmandu, Nepal
-Website: https://www.laevix.com
-Contact: info@laevix.com
+Website: https://www.laevix.org
+Contact: info@laevix.org
 
 /* SITE */
 Last update: 2026/01/13
