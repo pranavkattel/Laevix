@@ -73,12 +73,10 @@
 @layer base {
   * {
     @apply border-border;
-    cursor: none !important;
   }
 
   html {
     scroll-behavior: smooth;
-    cursor: none !important;
     background-color: #f0f0f0;
   }
 
@@ -90,7 +88,6 @@
     @apply bg-background text-foreground font-sans antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'San Francisco', 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
-    cursor: none !important;
   }
 
   ::selection {

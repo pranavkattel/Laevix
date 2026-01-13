@@ -91,6 +91,12 @@ export function AboutSection() {
             technology to transform your brand. Every pixel is calculated, every interaction 
             is powered by intelligence.
           </motion.p>
+          
+          {/* Hidden SEO Content */}
+          <div className="sr-only">
+            <h3>About Laevix - Leading AI Tech Company and Website Making Company in Nepal</h3>
+            <p>Laevix is Nepal's premier AI tech company and website development agency based in Kathmandu, specializing in professional website development, AI solutions, and custom software development. We serve businesses across Nepal including Kathmandu, Pokhara, Lalitpur, Bhaktapur, and Biratnagar. Our services include website design, web development, AI agent development, chatbot development, business automation, digital transformation, e-commerce solutions, mobile app development, SEO services, and cloud solutions. As the best tech company in Nepal, we have helped over 100+ businesses transform digitally with cutting-edge AI technology and innovative web solutions. Contact us for world-class technology solutions delivered locally in Nepal.</p>
+          </div>
         </motion.div>
 
         {/* Team Content */}

@@ -182,6 +182,11 @@ export function HeroSection() {
           >
             SCALE
           </motion.h1>
+          {/* Hidden SEO content */}
+          <div className="sr-only">
+            <h2>Laevix - Leading AI Tech Company and Website Making Company in Nepal</h2>
+            <p>Laevix is the premier AI tech company and website development agency in Nepal. We specialize in creating custom websites, AI agents, intelligent automation solutions, and cutting-edge digital experiences for businesses across Nepal including Kathmandu, Pokhara, and Lalitpur. As the top-rated tech company in Nepal, we deliver world-class AI solutions, custom software development, and digital transformation services. Whether you need website design, AI-powered applications, or business automation, Laevix is your trusted technology partner in Nepal.</p>
+          </div>
         </div>
 
         {/* 3D Monitor Reveal - Smaller */}
@@ -322,14 +327,14 @@ export function HeroSection() {
 
         {/* Bottom Metadata */}
         <div className="absolute bottom-12 left-8 md:left-24 right-8 md:right-24 flex flex-col md:flex-row items-end justify-between gap-8 z-40">
-          <div className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-600 leading-loose">
+          <address className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 dark:text-neutral-600 leading-loose not-italic">
             POWERED BY LAEVIX <br />
             NEPAL 🇳🇵 {new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })} NPT
-          </div>
+          </address>
 
-          <div className="max-w-xs text-[10px] font-bold uppercase tracking-widest text-right text-neutral-500 dark:text-neutral-500 leading-relaxed">
+          <p className="max-w-xs text-[10px] font-bold uppercase tracking-widest text-right text-neutral-500 dark:text-neutral-500 leading-relaxed">
             We build intelligent solutions - websites, AI agents & automation systems that scale with your ambition.
-          </div>
+          </p>
         </div>
 
       </div>

@@ -8,26 +8,26 @@ import { useNavigate } from 'react-router-dom';
 const services = [
   {
     number: '01',
-    title: 'Define',
-    fullTitle: 'Define',
-    description: 'Laying the foundation with strategy, style and structure. From brand discovery to visual direction, everything starts here.',
-    includes: ['Discovery Workshop', 'Visual Moodboard', 'Colors & Typography', 'Design Directions'],
+    title: 'Website Development',
+    fullTitle: 'Website Development',
+    description: 'Professional website design and development services in Nepal. From responsive corporate websites to e-commerce platforms, we create stunning digital experiences that drive business growth.',
+    includes: ['Custom Web Design', 'E-commerce Platforms', 'Responsive Development', 'SEO Optimization'],
     icon: '✦'
   },
   {
     number: '02',
-    title: 'Design',
-    fullTitle: 'Design',
-    description: 'Crafting clear, bold and personality-driven interfaces. High-fidelity UI with motion and intent, straight from Figma.',
-    includes: ['UI Design', 'Motion Ideas', 'Figma Prototype', 'Digital Styleguide'],
+    title: 'AI Solutions',
+    fullTitle: 'AI Solutions',
+    description: 'Cutting-edge AI agents and intelligent automation for businesses in Nepal. From chatbots to predictive analytics, we implement AI solutions that transform your operations.',
+    includes: ['AI Agents & Chatbots', 'Machine Learning', 'Predictive Analytics', 'Intelligent Automation'],
     icon: '❖'
   },
   {
     number: '03',
-    title: 'Develop',
-    fullTitle: 'Develop',
-    description: 'Bringing design to life in Webflow, smooth, responsive and accessible. From CMS to micro-interactions; fully functional and future-proof.',
-    includes: ['Webflow Development', 'CMS Integration', 'Animations', 'Responsive Design'],
+    title: 'Custom Software',
+    fullTitle: 'Custom Software',
+    description: 'Tailored software development and digital transformation services. CMS integration, API development, cloud solutions - fully functional, scalable, and future-proof technology.',
+    includes: ['Custom Development', 'CMS Integration', 'API Development', 'Cloud Solutions'],
     icon: '⌘'
   }
 ];
@@ -83,6 +83,12 @@ export default function Services() {
               We help brands and creative teams to go from idea to digital experience, with design, motion, and development at the core.
             </h2>
           </motion.div>
+          
+          {/* Hidden SEO Content */}
+          <div className="sr-only">
+            <h3>Professional Website Development and AI Solutions in Nepal</h3>
+            <p>Laevix is the leading AI tech company and website making company in Nepal, offering comprehensive services including website development, web design, AI agent development, custom software solutions, business automation, and digital transformation services in Kathmandu, Nepal. We specialize in creating responsive websites, e-commerce platforms, AI chatbots, intelligent automation systems, and cutting-edge digital solutions for businesses across Nepal. As the top-rated tech company in Kathmandu, we deliver world-class website development services, AI solutions, and custom software that drives business growth. Contact us for professional web development, AI implementation, and digital transformation services in Nepal.</p>
+          </div>
         </div>
 
         {/* Scroll Indicator */}
@@ -141,7 +147,7 @@ export default function Services() {
 
                   {/* Middle: Title and Description */}
                   <div className="md:col-span-6">
-                    <h3 className="text-7xl md:text-9xl font-black uppercase tracking-tighter mb-8 text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-500">
+                    <h3 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 text-neutral-900 dark:text-white group-hover:text-red-600 transition-colors duration-500 break-words">
                       {service.fullTitle}
                     </h3>
                     <p className="text-xl text-neutral-700 dark:text-neutral-400 leading-relaxed group-hover:text-neutral-800 dark:group-hover:text-neutral-300 transition-colors duration-300">

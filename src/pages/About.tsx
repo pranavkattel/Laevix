@@ -84,6 +84,12 @@ export default function About() {
               </h2>
               <p className="text-xl text-neutral-700 dark:text-neutral-400">NEPAL</p>
             </div>
+            
+            {/* Hidden SEO Content */}
+            <div className="sr-only">
+              <h3>About Laevix - Premier AI Tech Company and Website Making Company in Nepal</h3>
+              <p>Laevix is Nepal's leading AI tech company and website development agency headquartered in Kathmandu. We specialize in professional website development, AI solutions, custom software development, and digital transformation services for businesses across Nepal. Our expert team delivers cutting-edge technology solutions including website design, web development, AI agent development, chatbot development, business automation, e-commerce platforms, mobile app development, and cloud solutions. As the top-rated tech company in Kathmandu, we combine world-class expertise with local market knowledge to help businesses grow digitally. Contact Laevix for innovative AI solutions and professional website development services in Nepal.</p>
+            </div>
           </motion.div>
         </div>
       </section>
