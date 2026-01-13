@@ -11,8 +11,12 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
-    message: ''
+    phone: '',
+    serviceType: '',
+    customService: '',
+    message: '',
+    notificationPreference: 'email',
+    connectionPreference: 'email'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -20,7 +24,7 @@ export default function Contact() {
     message: string;
   }>({ type: null, message: '' });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
@@ -49,7 +53,7 @@ export default function Contact() {
           type: 'success',
           message: 'Message sent successfully! Check your email for confirmation.'
         });
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', serviceType: '', customService: '', message: '', notificationPreference: 'email', connectionPreference: 'email' });
       } else {
         setSubmitStatus({
           type: 'error',
@@ -222,32 +226,105 @@ export default function Contact() {
 
             <div>
               <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
-                Subject
+                Phone Number <span className="text-neutral-500 font-normal">(Optional)</span>
               </label>
               <input
-                type="text"
-                name="subject"
-                value={formData.subject}
+                type="tel"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
-                required
                 className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
-                placeholder="What's this about?"
+                placeholder="+977 98XXXXXXXX"
               />
             </div>
 
             <div>
               <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
-                Message
+                What service are you interested in? <span className="text-red-600">*</span>
+              </label>
+              <select
+                name="serviceType"
+                value={formData.serviceType}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+              >
+                <option value="">Select a service</option>
+                <option value="website">Website Development</option>
+                <option value="ai">AI Solutions</option>
+                <option value="software">Custom Software</option>
+                <option value="other">Other / Custom Project</option>
+              </select>
+            </div>
+
+            {formData.serviceType === 'other' && (
+              <div>
+                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
+                  Describe your service needs <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="customService"
+                  value={formData.customService}
+                  onChange={handleChange}
+                  required={formData.serviceType === 'other'}
+                  className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                  placeholder="Tell us about your project..."
+                />
+              </div>
+            )}
+
+            <div>
+              <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
+                Project Details <span className="text-red-600">*</span>
               </label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows={8}
+                rows={6}
                 className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300 resize-none"
-                placeholder="Tell us about your project..."
+                placeholder="Tell us more about your project, timeline, budget, and goals..."
               />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
+                  How do you want to be notified? <span className="text-red-600">*</span>
+                </label>
+                <select
+                  name="notificationPreference"
+                  value={formData.notificationPreference}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                >
+                  <option value="email">Email</option>
+                  <option value="phone">Phone Call</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="sms">SMS</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-bold uppercase tracking-widest text-neutral-600 dark:text-neutral-400 mb-3">
+                  How do you want to get connected? <span className="text-red-600">*</span>
+                </label>
+                <select
+                  name="connectionPreference"
+                  value={formData.connectionPreference}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-6 py-4 bg-neutral-300 dark:bg-neutral-900 border border-neutral-400 dark:border-white/10 text-neutral-900 dark:text-white focus:border-red-600 focus:outline-none transition-colors duration-300"
+                >
+                  <option value="email">Email</option>
+                  <option value="phone">Phone Call</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="zoom">Zoom Call</option>
+                  <option value="meeting">In-Person Meeting</option>
+                </select>
+              </div>
             </div>
 
             <motion.button
